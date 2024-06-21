@@ -18,7 +18,6 @@ services:
     ports:
       - "1434:1433"
     volumes:
-      - ./gestao-backup:/gestao-backup
       - ./data:/var/opt/mssql/data
       - ./log:/var/opt/mssql/log
       - ./secrets:/var/opt/mssql/secrets
