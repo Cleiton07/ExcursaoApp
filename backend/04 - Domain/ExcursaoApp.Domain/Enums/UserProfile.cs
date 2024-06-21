@@ -4,6 +4,6 @@ namespace ExcursaoApp.Domain.Enums;
 
 public enum UserProfile
 {
-    [Description("Viajante")] Traveler,
-    [Description("Organizador")] Organizer
+    [Description("Viajante")] Traveler = 1,
+    [Description("Organizador")] Organizer = 2
 }

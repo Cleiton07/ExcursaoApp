@@ -1,9 +1,8 @@
-﻿using ExcursaoApp.Domain.Enums;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace ExcursaoApp.Domain.Entities.User;
 
-internal class UserValidator : AbstractValidator<UserEntity>
+public class UserValidator : AbstractValidator<UserEntity>
 {
     public const string EmailInvalidErrorMessage = "Email inválido";
     public const string EmailIsRequiredErrorMessage = "O email é obrigatório";
@@ -59,6 +58,6 @@ internal class UserValidator : AbstractValidator<UserEntity>
     private void ApplyRulesToProfile()
     {
         RuleFor(u => u.Profile).Cascade(CascadeMode.Stop)
-            .Must(p => Enum.GetValues<UserProfile>().Contains(p)).WithMessage(ProfileInvalidErrorMessage);
+            .Must(p => Enum.IsDefined(p)).WithMessage(ProfileInvalidErrorMessage);
     }
 }

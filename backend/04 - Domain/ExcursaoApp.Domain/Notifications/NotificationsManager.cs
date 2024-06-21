@@ -1,12 +1,13 @@
-﻿using FluentValidation.Results;
+﻿using FluentValidation;
+using FluentValidation.Results;
 
 namespace ExcursaoApp.Domain.Notifications;
 
-public class NotificationsManager : INotificationsManager
+public class NotificationsManager(IServiceProvider serviceProvider) : INotificationsManager
 {
     public IReadOnlyCollection<ValidationFailure> FieldNotifications { get; private set; } = [];
 
-    public bool HasNotification => FieldNotifications.Count == 0 && NotificationsWithoutField.Count == 0;
+    public bool HasNotification => FieldNotifications.Count > 0 || NotificationsWithoutField.Count > 0;
 
     public IReadOnlyCollection<string> NotificationsWithoutField { get; private set; } = [];
 
@@ -18,7 +19,7 @@ public class NotificationsManager : INotificationsManager
 
     public async Task<bool> AddNotificationsAsync(Notifiable notifiable, CancellationToken cancellationToken = default)
     {
-        var validationResult = await notifiable.ValidateAsync(cancellationToken);
+        var validationResult = await notifiable.ValidateAsync(GetValidator(notifiable), cancellationToken);
         return AddNotificationsFromValidationResult(validationResult);
     }
 
@@ -34,5 +35,12 @@ public class NotificationsManager : INotificationsManager
     {
         FieldNotifications = [.. FieldNotifications, .. validationResult.Errors];
         return !HasNotification;
+    }
+
+    private IValidator GetValidator(Notifiable notifiable)
+    {
+        var validatorType = typeof(IValidator<>).MakeGenericType(notifiable.GetType());
+        var validator = serviceProvider.GetService(validatorType);
+        return (IValidator)validator;
     }
 }

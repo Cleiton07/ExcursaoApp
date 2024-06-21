@@ -2,7 +2,7 @@
 using ExcursaoApp.Domain.Entities.User;
 using Microsoft.EntityFrameworkCore;
 
-namespace ExcursaoApp.Database.Context;
+namespace ExcursaoApp.Persistence.Context;
 
 public class ExcursaoAppContext(IDatabaseConfiguration configuration) : DbContext(BuildOptions(configuration)), IExcursaoAppContext
 {

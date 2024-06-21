@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="MediatR" Version="12.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\03 - Infrastructure\ExcursaoApp.Persistence\ExcursaoApp.Persistence.csproj" />
+    <ProjectReference Include="..\..\04 - Domain\ExcursaoApp.Domain\ExcursaoApp.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

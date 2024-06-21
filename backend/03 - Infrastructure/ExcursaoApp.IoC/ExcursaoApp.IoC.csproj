@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\02 - Application\ExcursaoApp.Application\ExcursaoApp.Application.csproj" />
+    <ProjectReference Include="..\..\04 - Domain\ExcursaoApp.Domain\ExcursaoApp.Domain.csproj" />
+    <ProjectReference Include="..\ExcursaoApp.Configuration\ExcursaoApp.Configuration.csproj" />
+    <ProjectReference Include="..\ExcursaoApp.Persistence\ExcursaoApp.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

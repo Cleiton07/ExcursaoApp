@@ -1,7 +1,7 @@
 ﻿using ExcursaoApp.Domain.Entities.User;
 using Microsoft.EntityFrameworkCore;
 
-namespace ExcursaoApp.Database.Context;
+namespace ExcursaoApp.Persistence.Context;
 
 public interface IExcursaoAppContext : IDisposable
 {
@@ -12,4 +12,6 @@ public interface IExcursaoAppContext : IDisposable
     void ClearChangeTracker();
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+
+    DbSet<TEntity> Set<TEntity>() where TEntity : class;
 }

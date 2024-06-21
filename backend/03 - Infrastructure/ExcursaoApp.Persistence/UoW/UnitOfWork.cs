@@ -1,6 +1,6 @@
-﻿using ExcursaoApp.Database.Context;
+﻿using ExcursaoApp.Persistence.Context;
 
-namespace ExcursaoApp.Database.UoW;
+namespace ExcursaoApp.Persistence.UoW;
 
 public sealed class UnitOfWork(IExcursaoAppContext context) : IUnitOfWork
 {

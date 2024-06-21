@@ -1,4 +1,4 @@
-﻿namespace ExcursaoApp.Database.UoW;
+﻿namespace ExcursaoApp.Persistence.UoW;
 
 public interface IUnitOfWork
 {

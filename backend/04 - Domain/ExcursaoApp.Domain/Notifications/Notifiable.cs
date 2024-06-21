@@ -3,9 +3,9 @@ using FluentValidation.Results;
 
 namespace ExcursaoApp.Domain.Notifications;
 
-public abstract class Notifiable(IValidator? validator = null)
+public abstract class Notifiable
 {
-    internal ValidationResult Validate()
+    internal ValidationResult Validate(IValidator validator = null)
     {
         if (validator is null)
             return CreateEmptyValidationResult();
@@ -13,7 +13,7 @@ public abstract class Notifiable(IValidator? validator = null)
         return validator.Validate(CreateValidationContext());
     }
 
-    internal async Task<ValidationResult> ValidateAsync(CancellationToken cancellationToken = default)
+    internal async Task<ValidationResult> ValidateAsync(IValidator validator = null, CancellationToken cancellationToken = default)
     {
         if (validator is null)
             return CreateEmptyValidationResult();
@@ -24,10 +24,10 @@ public abstract class Notifiable(IValidator? validator = null)
     private static ValidationResult CreateEmptyValidationResult()
         => new() { Errors = [] };
 
-    private IValidationContext? CreateValidationContext()
+    private IValidationContext CreateValidationContext()
     {
         var validationContextType = typeof(ValidationContext<>).MakeGenericType(GetType());
-        var validationContext = (IValidationContext?)Activator.CreateInstance(validationContextType, this);
+        var validationContext = (IValidationContext)Activator.CreateInstance(validationContextType, this);
         return validationContext;
     }
 }

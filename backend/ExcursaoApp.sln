@@ -11,11 +11,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Infrastructure", "03 -
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Domain", "04 - Domain", "{7A5F5021-702B-4FA7-B547-15A3035CADD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcursaoApp.Domain", "04 - Domain\ExcursaoApp.Domain\ExcursaoApp.Domain.csproj", "{E45CC6C6-CE1D-4CA4-96A7-EB83D95461E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcursaoApp.Domain", "04 - Domain\ExcursaoApp.Domain\ExcursaoApp.Domain.csproj", "{E45CC6C6-CE1D-4CA4-96A7-EB83D95461E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcursaoApp.Database", "03 - Infrastructure\ExcursaoApp.Database\ExcursaoApp.Database.csproj", "{45D41670-6713-4BD5-9ABE-E203D7933E25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcursaoApp.Persistence", "03 - Infrastructure\ExcursaoApp.Persistence\ExcursaoApp.Persistence.csproj", "{45D41670-6713-4BD5-9ABE-E203D7933E25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcursaoApp.Configuration", "03 - Infrastructure\ExcursaoApp.Configuration\ExcursaoApp.Configuration.csproj", "{9E88CC4F-522D-4BD0-B000-F0B8E26114E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcursaoApp.Configuration", "03 - Infrastructure\ExcursaoApp.Configuration\ExcursaoApp.Configuration.csproj", "{9E88CC4F-522D-4BD0-B000-F0B8E26114E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcursaoApp.Application", "02 - Application\ExcursaoApp.Application\ExcursaoApp.Application.csproj", "{67F40653-C985-4DB5-8897-1C190C4AA1E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcursaoApp.Api", "01 - Presentation\ExcursaoApp.Api\ExcursaoApp.Api.csproj", "{5C8FE258-E5C7-43AC-9D66-279A2E8BEF26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcursaoApp.IoC", "03 - Infrastructure\ExcursaoApp.IoC\ExcursaoApp.IoC.csproj", "{23B14D9A-88C0-45A8-907B-7D97BEBEB141}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{3EE97033-B32B-4890-90D2-A2AC10966CC5}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +46,18 @@ Global
 		{9E88CC4F-522D-4BD0-B000-F0B8E26114E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E88CC4F-522D-4BD0-B000-F0B8E26114E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E88CC4F-522D-4BD0-B000-F0B8E26114E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67F40653-C985-4DB5-8897-1C190C4AA1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F40653-C985-4DB5-8897-1C190C4AA1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F40653-C985-4DB5-8897-1C190C4AA1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F40653-C985-4DB5-8897-1C190C4AA1E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C8FE258-E5C7-43AC-9D66-279A2E8BEF26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C8FE258-E5C7-43AC-9D66-279A2E8BEF26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C8FE258-E5C7-43AC-9D66-279A2E8BEF26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C8FE258-E5C7-43AC-9D66-279A2E8BEF26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23B14D9A-88C0-45A8-907B-7D97BEBEB141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B14D9A-88C0-45A8-907B-7D97BEBEB141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B14D9A-88C0-45A8-907B-7D97BEBEB141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B14D9A-88C0-45A8-907B-7D97BEBEB141}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +66,9 @@ Global
 		{E45CC6C6-CE1D-4CA4-96A7-EB83D95461E8} = {7A5F5021-702B-4FA7-B547-15A3035CADD2}
 		{45D41670-6713-4BD5-9ABE-E203D7933E25} = {802B5442-F074-4618-9A6B-7FCB470BD4BD}
 		{9E88CC4F-522D-4BD0-B000-F0B8E26114E3} = {802B5442-F074-4618-9A6B-7FCB470BD4BD}
+		{67F40653-C985-4DB5-8897-1C190C4AA1E2} = {C46A7F3C-3C11-46AF-8894-55EC85209702}
+		{5C8FE258-E5C7-43AC-9D66-279A2E8BEF26} = {1499C8A2-8B75-4C8E-995F-6A0C527A7B45}
+		{23B14D9A-88C0-45A8-907B-7D97BEBEB141} = {802B5442-F074-4618-9A6B-7FCB470BD4BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BB99BCC-18F8-44C5-9944-57D08D34CDDF}

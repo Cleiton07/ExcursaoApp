@@ -1,9 +1,11 @@
 ﻿using ExcursaoApp.Domain.Entities.Base;
 using ExcursaoApp.Domain.Enums;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ExcursaoApp.Domain.Entities.User;
 
-public class UserEntity(UserProfile profile) : Entity(new UserValidator())
+public class UserEntity(UserProfile profile) : Entity
 {
     public const int EmailMaxLength = 60;
     public const int FullNameMaxLength = 60;
@@ -18,21 +20,33 @@ public class UserEntity(UserProfile profile) : Entity(new UserValidator())
     public string PhoneNumber { get; private set; } = "";
     public UserProfile Profile { get; set; } = profile;
 
+    public static string EncryptPassword(string text)
+    {
+        byte[] inputBytes = Encoding.ASCII.GetBytes(text);
+        byte[] hash = MD5.HashData(inputBytes);
+
+        var sb = new StringBuilder();
+        for (int i = 0; i < hash.Length; i++)
+            sb.Append(hash[i].ToString("X2"));
+
+        return sb.ToString();
+    }
+
     public UserEntity SetEmail(string email)
     {
         Email = email.Trim();
         return this;
     }
 
-    public UserEntity SetEncryptedPassword(string encryptedPassword)
-    {
-        EncryptedPassword = encryptedPassword;
-        return this;
-    }
-
     public UserEntity SetFullName(string fullName)
     {
         FullName = fullName.Trim();
+        return this;
+    }
+
+    public UserEntity SetPassword(string password)
+    {
+        EncryptedPassword = EncryptPassword(password);
         return this;
     }
 
