@@ -4,6 +4,7 @@ using ExcursaoApp.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExcursaoApp.Persistence.Migrations
 {
     [DbContext(typeof(ExcursaoAppContext))]
-    partial class ExcursaoAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240625004407_CreateTourAndTourSubscriptionTables")]
+    partial class CreateTourAndTourSubscriptionTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

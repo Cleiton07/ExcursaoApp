@@ -1,10 +1,13 @@
-﻿using ExcursaoApp.Domain.Entities.User;
+﻿using ExcursaoApp.Domain.Entities.Tour;
+using ExcursaoApp.Domain.Entities.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExcursaoApp.Persistence.Context;
 
 public interface IExcursaoAppContext : IDisposable
 {
+    DbSet<TourEntity> Tours { get; set; }
+    DbSet<TourSubscription> ToursSubscriptions { get; set; }
     DbSet<UserEntity> Users { get; set; }
 
     void ApplyMigrations();
